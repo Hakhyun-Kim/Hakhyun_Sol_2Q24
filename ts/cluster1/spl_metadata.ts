@@ -51,10 +51,8 @@ umi.use(signerIdentity(createSignerFromKeypair(umi, keypair)));
              }
          )
 
-        let result = (await tx.sendAndConfirm(umi)).signature;
-        const encodedResultHash = base58.encode(result);
-        //const readableSig = umi.transactions.deserializeMessage
-        console.log(encodedResultHash);
+        let result = (await tx.sendAndConfirm(umi));
+        console.log( base58.encode(result.signature));
     } catch(e) {
         console.error(`Oops, something went wrong: ${e}`)
     }
